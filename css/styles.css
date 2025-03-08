@@ -7,10 +7,16 @@ body {
 
 .container {
     width: 80%;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.albums-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
 }
 
 h1 {
@@ -37,7 +43,19 @@ button:hover {
     border: 2px dashed #ccc;
     background-color: #f9f9f9;
     cursor: pointer;
-    height: 200px; /* Высота как у других альбомов */
+    height: 200px;
+    width: 200px; 
+}
+
+.album{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border: 2px dashed #ccc;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    height: 200px;
+    width: 200px; 
 }
 
 .create-album span {
@@ -45,8 +63,5 @@ button:hover {
     color: #555;
 }
 
-album-list{
-    
-}
 
 

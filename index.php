@@ -30,7 +30,7 @@
                 </div>
             <?php endforeach; ?>
 
-            <div class="album create-album" onclick="openModal()">
+            <div class="create-album" onclick="openModal()">
                 <span>+ Создать альбом</span>
             </div>
         </div>        
@@ -38,7 +38,7 @@
 
     <?php include 'components/modal.html'; ?>
     
-    <script src="js/modal.js"></script>
     <script src="js/scripts.js"></script>
+    <script src="js/modal.js"></script>
 </body>
 </html>
