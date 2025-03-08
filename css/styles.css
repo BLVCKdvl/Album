@@ -28,3 +28,25 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+/* Стили для кнопки создания альбома */
+.create-album {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #ccc;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    height: 200px; /* Высота как у других альбомов */
+}
+
+.create-album span {
+    font-size: 18px;
+    color: #555;
+}
+
+album-list{
+    
+}
+
+

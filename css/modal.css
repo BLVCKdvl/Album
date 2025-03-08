@@ -1,0 +1,123 @@
+/* Левая панель */
+.left-panel {
+    width: 50px;
+    background-color: #f1f1f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-btn {
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757c;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.close-btn:hover {
+    background-color: #e9ecef;
+    color: #0c7beb;
+}
+
+/* Правая панель */
+.right-panel {
+    flex: 1;
+    display: flex;
+    gap: 20px; /* Расстояние между колонками */
+    padding: 20px;
+    height: 100%; /* Занимает всю высоту модального окна */
+}
+
+/* Левая колонка: область для загрузки изображения */
+.image-upload-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    height: 100%; /* Занимает всю высоту правой панели */
+}
+
+/* Поле для загрузки изображения */
+.image-upload {
+    width: 100%;
+    height: 90%; /* Занимает всю высоту контейнера */
+    border: 2px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.image-upload img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Правая колонка: текстовые поля и кнопка */
+.form-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Занимает всю высоту правой панели */
+}
+
+/* Форма */
+#create-album-form {
+    display: flex;
+    flex-direction: column;
+    height: 90%; /* Занимает всю высоту контейнера */
+}
+
+#create-album-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #343a40;
+}
+
+#create-album-form input,
+#create-album-form textarea {
+
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+#create-album-form input:focus,
+#create-album-form textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+    outline: none;
+}
+
+#create-album-form textarea {
+    resize:none;
+    height: 355px;
+    margin-bottom: 20px; /* Отступ снизу для кнопки */
+}
+
+#create-album-form button {
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.2s ease-in-out;
+    margin-top: auto; /* Кнопка прижимается к нижнему краю */
+}
+
+#create-album-form button:hover {
+    background-color: #0056b3;
+}
