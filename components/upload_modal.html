@@ -1,0 +1,16 @@
+<div id="uploadModal" class="modal">
+    <div class="modal-content">
+        <button class="close-btn" onclick="closeUploadModal()">X</button>
+        <h2>Добавить изображение</h2>
+        <form id="uploadForm" action="php/upload_image.php" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="album_id" value="<?php echo $album_id; ?>">
+            <label for="imageName">Название изображения:</label>
+            <input type="text" name="imageName" id="imageName" required>
+            <label for="imageDescription">Описание изображения:</label>
+            <textarea name="imageDescription" id="imageDescription"></textarea>
+            <label for="imageFile">Выберите файл:</label>
+            <input type="file" name="imageFile" id="imageFile" accept="image/*" required>
+            <button type="submit">Загрузить</button>
+        </form>
+    </div>
+</div>

@@ -1,10 +1,7 @@
 // Открытие модального окна для создания альбома
 function openModal() {
     document.getElementById('modal').style.display = 'flex';
-    if (document.getElementById('upload-image-form') != null)
-    {
-        document.getElementById('upload-image-form').reset(); // Сброс формы
-    }
+    document.getElementById('upload-image-form').reset();
 }
 
 // Закрытие модального окна
@@ -19,3 +16,4 @@ window.onclick = function(event) {
         closeModal();
     }
 };
+

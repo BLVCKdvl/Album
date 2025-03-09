@@ -25,9 +25,11 @@
 
         <div class="albums-list">
             <?php foreach ($albums as $album): ?>
-                <div class='album'>
-                    <h3><?php echo $album['name']; ?></h3>   
-                </div>
+                <a href="album.php?id=<?php echo $album['id']; ?>" class="album-link">
+                    <div class='album'>
+                        <h3><?php echo $album['name']; ?></h3>   
+                    </div>
+                </a>                
             <?php endforeach; ?>
 
             <div class="create-album" onclick="openModal()">
