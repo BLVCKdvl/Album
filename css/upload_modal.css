@@ -1,0 +1,114 @@
+/* Стили для модального окна загрузки изображений */
+#uploadModal.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    justify-content: center;
+    align-items: center;
+}
+
+#uploadModal .modal-content {
+    background-color: #fff;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    position: relative;
+}
+
+#uploadModal .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #6c757c;
+    transition: color 0.2s ease-in-out;
+}
+
+#uploadModal .close-btn:hover {
+    color: #0c7beb;
+}
+
+#uploadModal h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #343a40;
+}
+
+#uploadModal #uploadForm {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#uploadModal #uploadForm label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #343a40;
+}
+
+#uploadModal #uploadForm input[type="text"],
+#uploadModal #uploadForm textarea {
+    width: 95%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+#uploadModal #uploadForm input[type="text"]:focus,
+#uploadModal #uploadForm textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+    outline: none;
+}
+
+#uploadModal #uploadForm textarea {
+    resize: none; 
+    height: 100px; 
+}
+
+#uploadModal #uploadForm input[type="file"] {
+    width: 95%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+#uploadModal #uploadForm input[type="file"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+    outline: none;
+}
+
+#uploadModal #uploadForm button[type="submit"] {
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#uploadModal #uploadForm button[type="submit"]:hover {
+    background-color: #0056b3;
+}

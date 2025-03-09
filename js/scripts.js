@@ -1,22 +1,4 @@
-// Открытие модального окна с изображением
-function openImageModal(imageId) {
-    fetch(`php/get_image_details.php?id=${imageId}`)
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('fullSizeImage').src = data.file_path;
-            document.getElementById('imageName').textContent = data.name;
-            document.getElementById('imageDescription').textContent = data.description;
-            document.getElementById('likeCount').textContent = data.likes;
-            document.getElementById('commentCount').textContent = data.comments;
-            document.getElementById('imageModal').style.display = 'flex';
-        });
-}
-
-// Закрытие модального окна с изображением
-function closeImageModal() {
-    document.getElementById('imageModal').style.display = 'none';
-}
-
+//добавление изображения
 function openUploadModal(){
     document.getElementById('uploadModal').style.display = 'flex';
 }
@@ -36,3 +18,51 @@ window.onclick = function(event) {
         closeModal();
     }
 };
+
+// модальное окно редактирования описания
+function openEditDescriptionModal() {
+    const descriptionElement = document.getElementById('album-description');
+    const currentDescription = descriptionElement.innerText;
+
+    const textarea = document.getElementById('edit-description-textarea');
+    textarea.value = currentDescription;
+
+    const modal = document.getElementById('editDescriptionModal');
+    modal.style.display = 'flex';
+}
+
+function closeEditDescriptionModal() {
+    const modal = document.getElementById('editDescriptionModal');
+    modal.style.display = 'none';
+}
+
+function saveDescriptionChanges() {
+    const newDescription = document.getElementById('edit-description-textarea').value;
+    const albumId = document.getElementById('album-id').dataset.albumId;
+
+    fetch('php/update_album_description.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            album_id: albumId,
+            description: newDescription,
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            const descriptionElement = document.getElementById('album-description');
+            descriptionElement.innerText = newDescription;
+
+            closeEditDescriptionModal();
+        } else {
+            alert('Ошибка при сохранении описания: ' + (data.error || 'Неизвестная ошибка'));
+        }
+    })
+    .catch(error => {
+        console.error('Ошибка:', error);
+        alert('Произошла ошибка при сохранении описания. Проверьте консоль для подробностей.');
+    });
+}

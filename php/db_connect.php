@@ -11,7 +11,6 @@
         die("Ошибка подключения: " +  mysqli_connect_error());
     }
 
-    // Функция для получения количества лайков/дизлайков
     function getLikesCount($image_id) {
         global $connection;
         $sql = "SELECT COUNT(*) as count FROM likes WHERE image_id = $image_id";
@@ -20,7 +19,6 @@
         return $row['count'];
     }
 
-    // Функция для получения количества комментариев
     function getCommentsCount($image_id) {
         global $connection;
         $sql = "SELECT COUNT(*) as count FROM comments WHERE image_id = $image_id";

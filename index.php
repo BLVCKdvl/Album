@@ -7,6 +7,12 @@
     $albums = [];
     while ($row = mysqli_fetch_assoc($result)) 
     {
+        $album_id = $row['id'];
+        $image_sql = "SELECT file_path FROM images WHERE album_id=$album_id LIMIT 1";
+        $image_result = mysqli_query($connection, $image_sql);
+        $image = mysqli_fetch_assoc($image_result);
+
+        $row['thumbnail_path'] = $image ? $image['file_path'] : 'images/default_thumbnail.jpg';
         $albums[] = $row;
     }
 ?>
@@ -17,7 +23,6 @@
     <meta charset="UTF-8">
     <title>Альбомы</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/modal.css">
 </head>
 <body>
     <div class="container">
@@ -27,6 +32,7 @@
             <?php foreach ($albums as $album): ?>
                 <a href="album.php?id=<?php echo $album['id']; ?>" class="album-link">
                     <div class='album'>
+                        <img src="<?php echo $album['thumbnail_path']; ?>" alt="<?php echo $album['name'] ?>" class="album-thumbnail">
                         <h3><?php echo $album['name']; ?></h3>   
                     </div>
                 </a>                
