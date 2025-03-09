@@ -1,13 +1,13 @@
 /* Стили для модального окна */
 .modal {
-    display: none; /* По умолчанию окно скрыто */
+    display: none; 
     position: fixed;
     z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+    background-color: rgba(0, 0, 0, 0.5); 
     justify-content: center;
     align-items: center;
 }
@@ -21,7 +21,6 @@
     display: flex;
 }
 
-/* Левая панель */
 .left-panel {
     width: 50px;
     background-color: #f1f1f1;
@@ -50,27 +49,24 @@
     color: #0c7beb;
 }
 
-/* Правая панель */
 .right-panel {
     flex: 1;
     display: flex;
-    gap: 20px; /* Расстояние между колонками */
+    gap: 20px; 
     padding: 20px;
-    height: 100%; /* Занимает всю высоту модального окна */
+    height: 100%; 
 }
 
-/* Левая колонка: область для загрузки изображения */
 .image-upload-container {
     flex: 1;
     display: flex;
     justify-content: center;
-    height: 100%; /* Занимает всю высоту правой панели */
+    height: 100%; 
 }
 
-/* Поле для загрузки изображения */
 .image-upload {
     width: 100%;
-    height: 90%; /* Занимает всю высоту контейнера */
+    height: 90%; 
     border: 2px dashed #ccc;
     display: flex;
     align-items: center;
@@ -83,19 +79,17 @@
     max-height: 100%;
 }
 
-/* Правая колонка: текстовые поля и кнопка */
 .form-container {
     flex: 1;
     display: flex;
     flex-direction: column;
-    height: 100%; /* Занимает всю высоту правой панели */
+    height: 100%; 
 }
 
-/* Форма */
 #create-album-form {
     display: flex;
     flex-direction: column;
-    height: 90%; /* Занимает всю высоту контейнера */
+    height: 90%; 
 }
 
 #create-album-form label {
@@ -126,7 +120,7 @@
 #create-album-form textarea {
     resize:none;
     height: 355px;
-    margin-bottom: 20px; /* Отступ снизу для кнопки */
+    margin-bottom: 20px;
 }
 
 #create-album-form button {
@@ -139,7 +133,7 @@
     font-size: 16px;
     font-weight: 600;
     transition: background-color 0.2s ease-in-out;
-    margin-top: auto; /* Кнопка прижимается к нижнему краю */
+    margin-top: auto; 
 }
 
 #create-album-form button:hover {

@@ -35,7 +35,6 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* Стили для кнопки создания альбома */
 .create-album {
     display: flex;
     align-items: center;
@@ -49,7 +48,8 @@ button:hover {
 
 .album{
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     border: 2px dashed #ccc;
     background-color: #f9f9f9;
@@ -63,8 +63,6 @@ button:hover {
     color: #555;
 }
 
-
-/* стили для окна альбома*/
 .images-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -73,21 +71,25 @@ button:hover {
 }
 
 .image-item {
+    height: 350px;
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 10px;
     text-align: center;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .image-item img {
     max-width: 100%;
     height: auto;
+    max-height: 180px;
     border-radius: 8px;
+    object-fit: contain;
+    margin: auto;
 }
-
-
-/* стили кликабельных ссылок*/
 
 .album-link{
     text-decoration: none;
@@ -100,9 +102,8 @@ button:hover {
     border-color: #007bff;
 }
 
-/* стиль кнопки удаления изображения*/
 .delete-button {
-    background-color: #ff4d4d; /* Красный цвет */
+    background-color: #ff4d4d; 
     color: white;
     border: none;
     padding: 8px 16px;
@@ -113,18 +114,17 @@ button:hover {
 }
 
 .delete-button:hover {
-    background-color: #cc0000; /* Темнее красный при наведении */
+    background-color: #cc0000; 
 }
 
-/* кнопка вернуться к альбомам*/
 .back-to-albums {
-    margin-bottom: 20px; /* Отступ снизу */
+    margin-bottom: 20px; 
 }
 
 .back-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007bff; /* Синий цвет */
+    background-color: #007bff;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -133,5 +133,65 @@ button:hover {
 }
 
 .back-button:hover {
-    background-color: #0056b3; /* Темнее синий при наведении */
+    background-color: #0056b3;
 }
+
+.delete-album-button {
+    display: block;
+    width: 80%;
+    height: 70px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: rgba(255, 77, 77, 0.8); 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 25px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+.delete-album-button:hover {
+    background-color: rgba(204, 0, 0, 0.8); 
+}
+
+.button-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.add-image-button{
+    width: 40%;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 18px;
+    margin: auto;
+}
+
+.edit-description-button{
+    width: 40%;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 18px;
+    margin: auto;
+}
+
+.album-thumbnail{
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.7;
+    transition: opacity 0.1s ease-in-out;
+}
+
+.album-thumbnail:hover{
+    opacity: 1;
+}
+

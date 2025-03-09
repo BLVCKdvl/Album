@@ -1,24 +1,27 @@
-<div id="modal" class="modal">
-    <div class="modal-content">
-        <!-- Левая панель с кнопкой закрытия -->
-        <div class="left-panel">
-            <button class="close-btn" onclick="closeModal()">X</button>
-        </div>
+<head>
+    <link rel="stylesheet" href="css/modal.css">
+</head>
+<body>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="left-panel">
+                <button class="close-btn" onclick="closeModal()">X</button>
+            </div>
 
-        <!-- Правая панель с формой -->
-        <div class="right-panel">
-            <!-- Правая колонка: текстовые поля и кнопка -->
-            <div class="form-container">
-                <form action="php/create_album.php" method="post" id="create-album-form">
-                    <label for="album_name">Название альбома:</label>
-                    <input type="text" name="album_name" id="album_name" required>
-                    <br>
-                    <label for="album_description">Описание альбома:</label>
-                    <textarea name="album_description" id="album_description"></textarea>
-                    <br>
-                    <button type="submit">Создать альбом</button>
-                </form>
+            <div class="right-panel">
+                <div class="form-container">
+                    <form action="php/create_album.php" method="post" id="create-album-form">
+                        <label for="album_name">Название альбома:</label>
+                        <input type="text" name="album_name" id="album_name" required>
+                        <br>
+                        <label for="album_description">Описание альбома:</label>
+                        <textarea name="album_description" id="album_description"></textarea>
+                        <br>
+                        <button type="submit">Создать альбом</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</body>
+
