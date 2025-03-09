@@ -7,10 +7,16 @@ body {
 
 .container {
     width: 80%;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.albums-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
 }
 
 h1 {
@@ -37,7 +43,19 @@ button:hover {
     border: 2px dashed #ccc;
     background-color: #f9f9f9;
     cursor: pointer;
-    height: 200px; /* Высота как у других альбомов */
+    height: 200px;
+    width: 200px; 
+}
+
+.album{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border: 2px dashed #ccc;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    height: 200px;
+    width: 200px; 
 }
 
 .create-album span {
@@ -45,8 +63,75 @@ button:hover {
     color: #555;
 }
 
-album-list{
-    
+
+/* стили для окна альбома*/
+.images-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.image-item {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.image-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
 
+/* стили кликабельных ссылок*/
+
+.album-link{
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.album-link:hover .album{
+    background-color: #f0f0f0;
+    border-color: #007bff;
+}
+
+/* стиль кнопки удаления изображения*/
+.delete-button {
+    background-color: #ff4d4d; /* Красный цвет */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.delete-button:hover {
+    background-color: #cc0000; /* Темнее красный при наведении */
+}
+
+/* кнопка вернуться к альбомам*/
+.back-to-albums {
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Синий цвет */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #0056b3; /* Темнее синий при наведении */
+}

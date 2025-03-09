@@ -1,0 +1,20 @@
+<div id="imageModal" class="modal">
+    <div class="modal-content">
+        <button class="close-btn" onclick="closeImageModal()">X</button>
+        <div class="image-container">
+            <img id="fullSizeImage" src="" alt="">
+            <h2 id="imageName"></h2>
+            <p id="imageDescription"></p>
+            <p>Лайки: <span id="likeCount"></span></p>
+            <p>Комментарии: <span id="commentCount"></span></p>
+        </div>
+        <div class="comments-section">
+            <h3>Комментарии</h3>
+            <div id="commentsList"></div>
+            <form id="commentForm">
+                <textarea name="comment" placeholder="Оставьте комментарий" required></textarea>
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
+    </div>
+</div>

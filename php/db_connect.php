@@ -10,4 +10,22 @@
     {
         die("Ошибка подключения: " +  mysqli_connect_error());
     }
+
+    // Функция для получения количества лайков/дизлайков
+    function getLikesCount($image_id) {
+        global $connection;
+        $sql = "SELECT COUNT(*) as count FROM likes WHERE image_id = $image_id";
+        $result = mysqli_query($connection, $sql);
+        $row = mysqli_fetch_assoc($result);
+        return $row['count'];
+    }
+
+    // Функция для получения количества комментариев
+    function getCommentsCount($image_id) {
+        global $connection;
+        $sql = "SELECT COUNT(*) as count FROM comments WHERE image_id = $image_id";
+        $result = mysqli_query($connection, $sql);
+        $row = mysqli_fetch_assoc($result);
+        return $row['count'];
+    }
 ?>
