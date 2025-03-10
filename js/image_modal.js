@@ -26,6 +26,8 @@ function openImageModal(imageId) {
 
             imageIdForPost = imageId;
 
+            checkIfLiked(imageId);
+
             document.getElementById('image-modal').style.display = 'flex';
         })
         .catch(error => {
@@ -105,4 +107,53 @@ function addComment() {
         console.error('Ошибка при добавлении комментария:', error);
         alert(error.message);
     });
+}
+
+
+function likeImage() {
+    const imageId = imageIdForPost; 
+    const likeButton = document.getElementById('image-modal-like-button');
+    const likeCount = document.getElementById('image-modal-like-count');
+
+    const likedImages = JSON.parse(localStorage.getItem('likedImages')) || [];
+    if (likedImages.includes(imageId)) {
+        alert('Вы уже поставили лайк на это изображение.');
+        return;
+    }
+
+    fetch('php/like_image.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ image_id: imageId })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+         
+            likeCount.textContent = data.likes;
+
+            likedImages.push(imageId);
+            localStorage.setItem('likedImages', JSON.stringify(likedImages));
+
+            likeButton.disabled = true;
+            likeButton.textContent = '❤️ Лайк поставлен';
+        } else {
+            alert('Ошибка при постановке лайка: ' + (data.error || ''));
+        }
+    })
+    .catch(error => {
+        console.error('Ошибка:', error);
+        alert('Ошибка при постановке лайка.');
+    });
+}
+
+function checkIfLiked(imageId) {
+    const likedImages = JSON.parse(localStorage.getItem('likedImages')) || [];
+    if (likedImages.includes(imageId)) {
+        const likeButton = document.getElementById('image-modal-like-button');
+        likeButton.disabled = true;
+        likeButton.textContent = '❤️ Лайк поставлен';
+    }
 }
