@@ -58,12 +58,13 @@ while ($row = mysqli_fetch_assoc($images_result)) {
 
         <div class="images-grid">
             <?php foreach ($images as $image): ?>
-                <div class="image-item" onclick="openImageModal(<?php echo $image['id']; ?>)">
-                    <img src="<?php echo htmlspecialchars($image['file_path']); ?>" alt="<?php echo htmlspecialchars($image['name']); ?>">
+                <div class="image-item">
+                    <img src="<?php echo htmlspecialchars($image['file_path']); ?>" alt="<?php echo htmlspecialchars($image['name']); ?>" 
+                        onclick="openImageModal(<?php echo $image['id']; ?>)">
                     <div class="image-information">
                     <h3><?php echo htmlspecialchars($image['name']); ?></h3>
-                    <p>Лайки: <?php echo getLikesCount($image['id']); ?></p>
-                    <p>Комментарии: <?php echo getCommentsCount($image['id']); ?></p>
+                    <p>Лайки: <?php echo getLikesCount($image['id'], $connection); ?></p>
+                    <p>Комментарии: <?php echo getCommentsCount($image['id'], $connection); ?></p>
 
                     <form action="php/delete_image.php" method="POST" onsubmit="return confirm('Вы уверены, что хотите удалить это изображение?');">
                         <input type="hidden" name="image_id" value="<?php echo $image['id']; ?>">
@@ -81,6 +82,8 @@ while ($row = mysqli_fetch_assoc($images_result)) {
 
     <?php include 'components/upload_description_modal.html'; ?>
 
-    <script src="js/scripts.js"></script>
+    <?php include 'components/image_modal.html'; ?>
+
+    <script src="js/scripts.js"></script>    
 </body>
 </html>

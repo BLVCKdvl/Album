@@ -1,0 +1,54 @@
+Array
+(
+    [image_id] => 40
+    [text] => Тестовый комментарий
+)
+Array
+(
+    [image_id] => 67ce6a341fab1
+    [text] => dasdas
+)
+Array
+(
+    [image_id] => 67ce6a341fab1
+    [text] => asd
+)
+Array
+(
+    [image_id] => 67ce6a341fab1
+    [text] => asdasdasd
+)
+Array
+(
+    [image_id] => 67ce6a341fab1
+    [text] => asdasdasd
+)
+Array
+(
+    [image_id] => 67ce6a341fab1
+    [text] => aasdasd
+)
+Array
+(
+    [image_id] => 67ce6a341fab1
+    [text] => adsfsssdas
+)
+Array
+(
+    [image_id] => 67ce6a341fab1
+    [text] => sadasadasd
+)
+Array
+(
+    [image_id] => 39
+    [text] => asdasdas
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
