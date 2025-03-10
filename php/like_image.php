@@ -1,11 +1,7 @@
 <?php
-header('Content-Type: application/json'); // Указываем, что возвращаем JSON
+header('Content-Type: application/json'); 
 require 'db_connect.php';
 
-// Логируем входящие данные
-file_put_contents('log.txt', file_get_contents('php://input') . "\n", FILE_APPEND);
-
-// Получаем данные из тела запроса
 $data = json_decode(file_get_contents('php://input'), true);
 $image_id = isset($data['image_id']) ? intval($data['image_id']) : 0;
 
