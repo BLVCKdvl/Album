@@ -7,28 +7,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $description = $_POST['imageDescription'];
     $file = $_FILES['imageFile'];
 
-    // Проверяем тип файла
     $allowed_types = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg'];
     if (!in_array($file['type'], $allowed_types)) {
         die("Ошибка: разрешены только изображения JPEG, JPG, PNG и GIF.");
     }
 
-    // Указываем директорию для загрузки
     $upload_dir = '../images/';
 
-    // Создаем директорию, если она не существует
     if (!is_dir($upload_dir)) {
         mkdir($upload_dir, 0755, true);
     }
 
-    // Генерируем уникальное имя файла
     $file_extension = pathinfo($file['name'], PATHINFO_EXTENSION);
     $file_name = uniqid() . '.' . $file_extension;
     $file_path = $upload_dir . $file_name;
 
-    // Перемещаем файл в указанную директорию
     if (move_uploaded_file($file['tmp_name'], $file_path)) {
-        // Добавляем картинку в таблицу `images`
+      
         $sql = "INSERT INTO images (album_id, name, description, file_path) VALUES (?, ?, ?, ?)";
         $stmt = mysqli_prepare($connection, $sql);
 
@@ -39,10 +34,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         mysqli_stmt_bind_param($stmt, 'isss', $album_id, $name, $description, $file_path);
 
         if (mysqli_stmt_execute($stmt)) {
-            // Получаем ID только что добавленной картинки
+           
             $image_id = mysqli_insert_id($connection);
 
-            // Добавляем запись в таблицу `likes` (по умолчанию 0 лайков)
+        
             $likes_sql = "INSERT INTO likes (image_id, likes) VALUES (?, 0)";
             $likes_stmt = mysqli_prepare($connection, $likes_sql);
 
@@ -56,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
             mysqli_stmt_close($likes_stmt);
 
-            // Добавляем запись в таблицу `comments` (пустой комментарий)
+       
             $comments_sql = "INSERT INTO comments (image_id, text) VALUES (?, '')";
             $comments_stmt = mysqli_prepare($connection, $comments_sql);
 
@@ -70,7 +65,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
             mysqli_stmt_close($comments_stmt);
 
-            // Перенаправляем пользователя на страницу альбома
             header("Location: ../album.php?id=$album_id");
             exit();
         } else {

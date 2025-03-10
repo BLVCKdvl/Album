@@ -1,11 +1,11 @@
 let imageIdForPost;
 
 function openImageModal(imageId) {
-    // Загружаем данные об изображении через AJAX
+
     fetch(`php/get_image_data.php?id=${imageId}`)
         .then(response => response.json())
         .then(data => {
-            // Заполняем модальное окно данными
+
             const modalImage = document.querySelector('#image-modal .image-modal-panel img');
             const imageNameText = document.getElementById('image-modal-image-name-text');
             const likeCount = document.getElementById('image-modal-like-count');
@@ -18,17 +18,14 @@ function openImageModal(imageId) {
             descriptionText.innerText = data.description || 'Описание отсутствует';
             imageNameText.innerText = data.name;
 
-            // Очищаем список комментариев
             commentsList.innerHTML = '';
 
-            // Загружаем комментарии (если есть)
             if (data.comments > 0) {
                 loadComments(imageId);
             }
 
             imageIdForPost = imageId;
 
-            // Открываем модальное окно
             document.getElementById('image-modal').style.display = 'flex';
         })
         .catch(error => {
@@ -40,8 +37,6 @@ function closeImageModal() {
     document.getElementById('image-modal').style.display = 'none';
     location.reload();
 }
-
-// Закрытие модального окна при клике вне его области
 window.onclick = function (event) {
     const modal = document.getElementById('image-modal');
     if (event.target === modal) {
@@ -49,13 +44,12 @@ window.onclick = function (event) {
     }
 };
 
-// Функция для загрузки комментариев
 function loadComments(imageId) {
     fetch(`php/get_comments.php?id=${imageId}`)
         .then(response => response.json())
         .then(data => {
             const commentsList = document.getElementById('image-modal-comments-list');
-            commentsList.innerHTML = ''; // Очищаем список
+            commentsList.innerHTML = ''; 
 
             if (data.comments && data.comments.length > 0) {
                 data.comments.forEach(comment => {
@@ -74,7 +68,7 @@ function loadComments(imageId) {
 }
 
 function addComment() {
-    const imageId = imageIdForPost; // Получаем ID текущего изображения
+    const imageId = imageIdForPost; 
     const commentInput = document.getElementById('image-modal-comment-input');
     const commentText = commentInput.value.trim();
 
@@ -83,7 +77,6 @@ function addComment() {
         return;
     }
 
-    // Отправляем данные на сервер
     fetch('php/add_comment.php', {
         method: 'POST',
         headers: {
@@ -101,10 +94,8 @@ function addComment() {
     })
     .then(data => {
         if (data.success) {
-            // Очищаем поле ввода
             commentInput.value = '';
 
-            // Обновляем список комментариев
             loadComments(imageId);
         } else {
             alert(data.error || 'Ошибка при добавлении комментария');
